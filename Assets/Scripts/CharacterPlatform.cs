@@ -21,7 +21,7 @@ public class CharacterPlatform : MonoBehaviour
 		RaycastHit hit;
 		if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity))
 		{
-			if(hit.collider.gameObject.name == "Circuit Tile" && hit.distance <= 1.3)
+			if((hit.collider.gameObject.name == "Circuit Tile" || hit.collider.gameObject.name == "Lifting Platform") && hit.distance <= 1.3)
 			{
 				gameObject.transform.parent = hit.collider.gameObject.transform;
 			}

@@ -8,7 +8,7 @@ public class Character : MonoBehaviour
 	public float speed = 5f;
 	private Vector3 playerVelocity;
 	private bool groundedPlayer;
-	private float jumpHeight = 2f;
+	private float jumpHeight = 1f;
 	private float gravityValue = -9.81f;
 	private float turnSpeed = 1.5f;
 	

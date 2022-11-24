@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
 	private float jumpHeight = 1f;
 	private float gravityValue = -9.81f;
 	private float turnSpeed = 1.5f;
+	[SerializeField] private bool isActive = true;
 	
 	private Vector3 rotation;
 	
@@ -29,30 +30,40 @@ public class Character : MonoBehaviour
             playerVelocity.y = 0f;
         }
 		
-		this.rotation = new Vector3(0, Input.GetAxisRaw("Horizontal") * turnSpeed*100 * Time.deltaTime, 0);
+		if(this.isActive)
+		{
+			this.rotation = new Vector3(0, Input.GetAxisRaw("Horizontal") * turnSpeed*100 * Time.deltaTime, 0);
  
-        Vector3 move = new Vector3(0, 0, Input.GetAxisRaw("Vertical") * Time.deltaTime);
-        move = this.transform.TransformDirection(move);
-        characterController.Move(move * speed);
-        this.transform.Rotate(this.rotation);
+			Vector3 move = new Vector3(0, 0, Input.GetAxisRaw("Vertical") * Time.deltaTime);
+			move = this.transform.TransformDirection(move);
+			characterController.Move(move * speed);
+			this.transform.Rotate(this.rotation);
+			
+			if (Input.GetButton("Jump") && groundedPlayer)
+			{
+				playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+			}
 		
-		if (Input.GetButton("Jump") && groundedPlayer)
-        {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-        }
-		
-		playerVelocity.y += gravityValue*Time.deltaTime;
-		characterController.Move(playerVelocity*Time.deltaTime);
+			playerVelocity.y += gravityValue*Time.deltaTime;
+			characterController.Move(playerVelocity*Time.deltaTime);
+		}
+		else
+		{
+			characterController.Move(Vector3.zero);
+		}
     }
 	
-	void FixedUpdate()
+	void OnTriggerEnter(Collider other)
 	{
-		/*Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
-		if(move != Vector3.zero)
+		if(other.gameObject.tag == "EndZone")
 		{
-			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(move), turnSpeed*Time.fixedDeltaTime);
+			this.EndZone();
+			Debug.Log("H");
 		}
-		characterController.Move(move*Time.fixedDeltaTime*speed);
-		*/
-    }
+	}
+	
+	void EndZone()
+	{
+		this.isActive = false;
+	}
 }

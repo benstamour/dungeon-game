@@ -12,6 +12,7 @@ public class Character : MonoBehaviour
 	private float gravityValue = -9.81f;
 	private float turnSpeed = 1.5f;
 	[SerializeField] private bool isActive = true;
+	private int score = 0;
 	
 	private Vector3 rotation;
 	
@@ -65,5 +66,11 @@ public class Character : MonoBehaviour
 	void EndZone()
 	{
 		this.isActive = false;
+	}
+	
+	public void IncrementScore()
+	{
+		this.score++;
+		Debug.Log(this.score);
 	}
 }

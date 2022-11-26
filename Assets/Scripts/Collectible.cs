@@ -11,7 +11,7 @@ public class Collectible : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        characterScript = GameObject.Find("Character").GetComponent<Character>();
+        characterScript = GameObject.FindWithTag("Character").GetComponent<Character>();
     }
 
     // Update is called once per frame
@@ -47,7 +47,7 @@ public class Collectible : MonoBehaviour
 	
 	void OnCollisionEnter(Collision col)
 	{
-		if(col.gameObject.name == "Character")
+		if(col.gameObject.tag == "Character")
 		{
 			characterScript.IncrementScore();
 			this.transform.parent.gameObject.SetActive(false);

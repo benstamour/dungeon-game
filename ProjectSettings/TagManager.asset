@@ -9,6 +9,7 @@ TagManager:
   - EndZone
   - Collectible
   - BalancePlank
+  - Character
   layers:
   - Default
   - TransparentFX

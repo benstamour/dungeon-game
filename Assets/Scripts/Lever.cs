@@ -63,7 +63,7 @@ public class Lever : MonoBehaviour
 	
 	private bool NearView() // it is true if you near interactive object
     {
-		GameObject character = GameObject.Find("Character");
+		GameObject character = GameObject.FindWithTag("Character");
         distance = Vector3.Distance(transform.position, character.transform.position);
 		if(distance <= 2f)
 		{

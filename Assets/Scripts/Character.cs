@@ -59,7 +59,6 @@ public class Character : MonoBehaviour
 		if(other.gameObject.tag == "EndZone")
 		{
 			this.EndZone();
-			Debug.Log("H");
 		}
 	}
 	

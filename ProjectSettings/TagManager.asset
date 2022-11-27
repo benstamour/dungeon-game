@@ -10,6 +10,9 @@ TagManager:
   - Collectible
   - BalancePlank
   - Character
+  - BoulderPlatform
+  - Spikeball Spawn Points
+  - Spikeball Ramp
   layers:
   - Default
   - TransparentFX
@@ -17,8 +20,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Spikeball
+  - Spikeball Lava
   - 
   - 
   - 

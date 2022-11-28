@@ -29,7 +29,6 @@ public class CharacterPlatform : MonoBehaviour
 			}
 			else if(this.rampTrapTriggered == false && hit.collider.gameObject.tag == "Spikeball Ramp")
 			{
-				Debug.Log("Trap Triggered");
 				GameObject miniSpikeballs = GameObject.Find("Mini Spikeballs");
 				foreach(Transform child in miniSpikeballs.transform)
 				{

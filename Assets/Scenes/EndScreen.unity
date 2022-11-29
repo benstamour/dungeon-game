@@ -338,11 +338,11 @@ RectTransform:
   m_Children:
   - {fileID: 819052971}
   m_Father: {fileID: 1707739015}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 315, y: -38.699997}
+  m_AnchoredPosition: {x: 304.40002, y: -28.59999}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &410845828
@@ -574,7 +574,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Number of Attempts: N/A'
+  m_text: 'Number  of  Attempts:  N/A'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 22c65351011a6b54ca3dfba5fc0153e1, type: 2}
   m_sharedMaterial: {fileID: 689780830850302828, guid: 22c65351011a6b54ca3dfba5fc0153e1, type: 2}
@@ -925,7 +925,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: YOU ESCAPED THE DUNGEON!
+  m_text: YOU  ESCAPED  THE  DUNGEON!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 22c65351011a6b54ca3dfba5fc0153e1, type: 2}
   m_sharedMaterial: {fileID: 689780830850302828, guid: 22c65351011a6b54ca3dfba5fc0153e1, type: 2}
@@ -1061,7 +1061,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Time Taken: N/A'
+  m_text: 'Time Taken:  N/A'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 22c65351011a6b54ca3dfba5fc0153e1, type: 2}
   m_sharedMaterial: {fileID: 689780830850302828, guid: 22c65351011a6b54ca3dfba5fc0153e1, type: 2}
@@ -1210,7 +1210,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Orbs Collected: N/A'
+  m_text: 'Orbs  Collected:  N/A'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 22c65351011a6b54ca3dfba5fc0153e1, type: 2}
   m_sharedMaterial: {fileID: 689780830850302828, guid: 22c65351011a6b54ca3dfba5fc0153e1, type: 2}
@@ -1333,11 +1333,11 @@ RectTransform:
   m_Children:
   - {fileID: 1863857409}
   m_Father: {fileID: 1707739015}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 315, y: -125}
+  m_AnchoredPosition: {x: 304.40002, y: -114.899994}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1562151968
@@ -1532,8 +1532,8 @@ RectTransform:
   - {fileID: 1535812742}
   - {fileID: 1143826368}
   - {fileID: 532502261}
-  - {fileID: 1562151967}
   - {fileID: 410845827}
+  - {fileID: 1562151967}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

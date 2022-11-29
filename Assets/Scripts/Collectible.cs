@@ -45,9 +45,18 @@ public class Collectible : MonoBehaviour
 		
 	}
 	
-	void OnCollisionEnter(Collision col)
+	/*void OnCollisionEnter(Collision col)
 	{
 		if(col.gameObject.tag == "Character")
+		{
+			characterScript.IncrementScore();
+			this.transform.parent.gameObject.SetActive(false);
+		}
+	}*/
+	
+	void OnTriggerEnter(Collider other)
+	{
+		if(other.gameObject.tag == "Character")
 		{
 			characterScript.IncrementScore();
 			this.transform.parent.gameObject.SetActive(false);

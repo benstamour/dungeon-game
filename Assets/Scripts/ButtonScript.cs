@@ -36,4 +36,9 @@ public class ButtonScript : MonoBehaviour
 	{
 		SceneManager.LoadScene("EndScreen");
 	}
+	
+	public void LoadInstructionScreen()
+	{
+		SceneManager.LoadScene("InstructionScreen");
+	}
 }

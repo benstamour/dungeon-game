@@ -27,6 +27,6 @@ public class ScoreText : MonoBehaviour
 
     void UpdateText(int score)
 	{
-        textComponent.text = "Orbs Collected: " + this.score.ToString() + "/10";
+        textComponent.text = "Orbs  Collected:  " + this.score.ToString() + " / 10";
 	}
 }

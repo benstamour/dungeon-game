@@ -30,6 +30,6 @@ public class TimeText : MonoBehaviour
 		int intTime = (int)time;
 		int minutes = intTime / 60;
 		int seconds = intTime % 60;
-        textComponent.text = "Time Taken: " + minutes.ToString() + ":" + seconds.ToString("D2");
+        textComponent.text = "Time  Taken:  " + minutes.ToString() + " : " + seconds.ToString("D2");
 	}
 }

@@ -18,7 +18,7 @@ public class KillPlayer : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if(col.gameObject.tag == "DeathZone")
+		if(col.gameObject.tag == "DeathZone")
 		{
 			Respawn();
 		}

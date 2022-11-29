@@ -35,9 +35,7 @@ public class Lever : MonoBehaviour
 			anim.SetBool("LeverUp", false);
 			activated = true;
 			
-			GameObject liftingPlatform = GameObject.Find("Lifting Platform");
-			LiftingPlatform liftingPlatformScript = liftingPlatform.GetComponent<LiftingPlatform>();
-			liftingPlatformScript.setLiftActivated(true);
+			StartCoroutine(CheckAnim());
 
 			/*if(gameObject.transform.parent.name == "Lever_Prefab")
 			{
@@ -74,4 +72,17 @@ public class Lever : MonoBehaviour
 			return false;
 		}
     }
+	
+	IEnumerator CheckAnim()
+	{
+		yield return new WaitForSeconds(0.5f);
+		while(this.anim.GetCurrentAnimatorStateInfo(0).length >
+            this.anim.GetCurrentAnimatorStateInfo(0).normalizedTime)
+		{
+			yield return null;
+		}
+		GameObject liftingPlatform = GameObject.Find("Lifting Platform");
+		LiftingPlatform liftingPlatformScript = liftingPlatform.GetComponent<LiftingPlatform>();
+		liftingPlatformScript.setLiftActivated(true);
+	}
 }

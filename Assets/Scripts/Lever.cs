@@ -65,7 +65,7 @@ public class Lever : MonoBehaviour
     {
 		GameObject character = GameObject.FindWithTag("Character");
         distance = Vector3.Distance(transform.position, character.transform.position);
-		if(distance <= 2f)
+		if(distance <= 3f)
 		{
 			return true;
 		}

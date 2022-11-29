@@ -27,6 +27,6 @@ public class AttemptText : MonoBehaviour
 
     void UpdateAttempts(int attempts)
 	{
-		textComponent.text = "Number of Attempts: " + attempts.ToString();
+		textComponent.text = "Number  of  Attempts:  " + attempts.ToString();
 	}
 }

@@ -48,7 +48,6 @@ public class SpikyBall : MonoBehaviour
 		}
 	}*/
 	
-	// ignore all colls by default, add plane below lava?
 	void OnCollisionEnter(Collision col)
     {
 		//Debug.Log(col.gameObject.name);
@@ -62,7 +61,6 @@ public class SpikyBall : MonoBehaviour
 			this.stage = 1;
 			this.startPos = gameObject.transform.position;*/
 			int randSpawn = Random.Range(0,3);
-			Debug.Log("spikyball respawning at point " + randSpawn.ToString() + "...");
 			gameObject.transform.position = this.spawnPoints[randSpawn];
 		}
     }

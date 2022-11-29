@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Character : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Character : MonoBehaviour
 	private float turnSpeed = 1.5f;
 	[SerializeField] private bool isActive = true;
 	private int score = 0;
+	private float startTime;
+	private GameManager gameManagerScript;
 	
 	private Vector3 rotation;
 	
@@ -20,6 +23,9 @@ public class Character : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+		this.startTime = Time.time;
+		this.gameManagerScript = GameObject.Find("GameManager").GetComponent<GameManager>();
+		this.gameManagerScript.incrementAttempts();
     }
 
     // Update is called once per frame
@@ -65,11 +71,17 @@ public class Character : MonoBehaviour
 	void EndZone()
 	{
 		this.isActive = false;
+		float totalTime = Time.time - this.startTime;
+		
+		this.gameManagerScript.setScore(this.score);
+		this.gameManagerScript.setTime(totalTime);
+		
+		//SceneManager.LoadScene("EndScreen");
+		this.gameManagerScript.EndZone();
 	}
 	
 	public void IncrementScore()
 	{
 		this.score++;
-		Debug.Log(this.score);
 	}
 }

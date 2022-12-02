@@ -81,8 +81,31 @@ public class Lever : MonoBehaviour
 		{
 			yield return null;
 		}
-		GameObject liftingPlatform = GameObject.Find("Lifting Platform");
-		LiftingPlatform liftingPlatformScript = liftingPlatform.GetComponent<LiftingPlatform>();
-		liftingPlatformScript.setLiftActivated(true);
+		if(this.gameObject.transform.parent.name == "Platform Lever")
+		{
+			GameObject liftingPlatform = GameObject.Find("Lifting Platform");
+			LiftingPlatform liftingPlatformScript = liftingPlatform.GetComponent<LiftingPlatform>();
+			liftingPlatformScript.setLiftActivated(true);
+		}
+		else if(this.gameObject.transform.parent.name == "Wall Lever")
+		{
+			GameObject slidingDoor = GameObject.Find("Sliding Door");
+			SlidingDoor slidingDoorScript = slidingDoor.GetComponent<SlidingDoor>();
+			slidingDoorScript.SlideTriggered();
+			
+			yield return new WaitForSeconds(2f);
+			
+			GameObject spikeRow = GameObject.Find("Spike Row");
+			SpikeRow spikeRowScript = spikeRow.GetComponent<SpikeRow>();
+			spikeRowScript.setMoveActivated(true);
+			
+			GameObject crusher1 = GameObject.Find("Crusher1");
+			Crusher crusher1Script = crusher1.GetComponent<Crusher>();
+			crusher1Script.setMoveActivated(true);
+			
+			GameObject crusher2 = GameObject.Find("Crusher2");
+			Crusher crusher2Script = crusher2.GetComponent<Crusher>();
+			crusher2Script.setMoveActivated(true);
+		}
 	}
 }

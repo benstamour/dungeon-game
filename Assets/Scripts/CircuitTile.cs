@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// script for the tile that moves counterclockwise in a square
 public class CircuitTile : MonoBehaviour
 {
-	int dir = 0;
+	int dir = 0; // 4 possible directions for the tile
 	Vector3 startPos = Vector3.zero;
 	//float slideProgress = 0f;
 	//float slideRate = 0.1f;
@@ -24,6 +25,7 @@ public class CircuitTile : MonoBehaviour
 	
 	void FixedUpdate()
 	{
+		// handles movement of the circuit tile
 		if(this.dir == 0)
 		{
 			//this.slideProgress += Time.fixedDeltaTime*this.slideRate;

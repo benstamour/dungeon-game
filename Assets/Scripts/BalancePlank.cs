@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// script for the unstable planks on the second bridge
 public class BalancePlank : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -16,11 +17,11 @@ public class BalancePlank : MonoBehaviour
         
     }
 	
+	// when player lands on a plank, add downward force where player is standing
 	void OnCollisionEnter(Collision col)
 	{
 		if(col.gameObject.tag == "Character")
 		{
-			Debug.Log("A");
 			ContactPoint contact = col.GetContact(0);
 			Vector3 contactPoint = contact.point;
 			gameObject.GetComponent<Rigidbody>().AddForceAtPosition(1f*Vector3.down,contactPoint, ForceMode.Force);

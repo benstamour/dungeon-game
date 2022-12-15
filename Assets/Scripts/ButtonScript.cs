@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// script for buttons on GUI screens
 public class ButtonScript : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class ButtonScript : MonoBehaviour
         
     }
 	
+	// these functions load the corresponding scene
 	public void LoadArena()
 	{
 		SceneManager.LoadScene("Arena");

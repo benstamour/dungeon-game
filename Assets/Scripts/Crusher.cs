@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// script for the two columns of spikes that move inward and outward
+// after the large floating platform area
 public class Crusher : MonoBehaviour
 {
 	private Vector3 startPos = Vector3.zero;
 	private float speed = 0.5f;
 	private bool moveActivated = false;
-	[SerializeField] int dir = 0;
+	[SerializeField] int dir = 0; // two possible directions for the crusher columns
 	
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,7 @@ public class Crusher : MonoBehaviour
 	
 	void FixedUpdate()
 	{
+		// handles the movement for the crusher
 		if(moveActivated)
 		{
 			if(this.dir == 0)

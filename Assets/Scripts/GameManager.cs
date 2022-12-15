@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// script that stores game data so that it is saved if a new scene loads or if the current scene reloads
 public class GameManager : MonoBehaviour
 {
 	private int score = 0;

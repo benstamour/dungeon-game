@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// displays the total time the player took to escape the dungeon on their last attempt
 public class TimeText : MonoBehaviour
 {
     private GameManager gameManagerScript;

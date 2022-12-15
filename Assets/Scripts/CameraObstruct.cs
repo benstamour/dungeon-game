@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// currently unused script for hiding objects between player and camera
 public class CameraObstruct : MonoBehaviour
 {
 	private List<GameObject> hiding = new List<GameObject>();
@@ -11,7 +12,7 @@ public class CameraObstruct : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //this.hiding = GameObejct.Find("Character");
+        //this.hiding = GameObject.Find("Character");
     }
 
     // Update is called once per frame
@@ -20,6 +21,7 @@ public class CameraObstruct : MonoBehaviour
         RaycastHit hit;
 		if(Physics.Raycast(transform.position, (gameObject.transform.parent.transform.position - transform.position).normalized, out hit, Mathf.Infinity))
 		{
+			// if the raycast hits the player, make any hidden objects opaque
 			if(hit.collider.gameObject.tag == "Character")
 			{
 				for(int i = 0; i < hiding.Count; i++)
@@ -27,6 +29,7 @@ public class CameraObstruct : MonoBehaviour
 					StartCoroutine(Unobstruct(hiding[i], alphas[i]));
 				}
 			}
+			// if the raycast does not hit the character, hide the object that it hits instead
 			else
 			{
 				GameObject obj = hit.collider.gameObject;
@@ -39,6 +42,7 @@ public class CameraObstruct : MonoBehaviour
 		}
     }
 	
+	// coroutine to unhide object by decreasing transparency
 	IEnumerator Unobstruct(GameObject obj, float origAlpha)
 	{
 		var color = obj.GetComponent<Renderer>().material.color;
@@ -55,6 +59,7 @@ public class CameraObstruct : MonoBehaviour
 		this.alphas.RemoveAt(index);
 	}
 	
+	// coroutine to hide object by increasing transparency
 	IEnumerator Obstruct(GameObject obj, float origAlpha)
 	{
 		Debug.Log("B");

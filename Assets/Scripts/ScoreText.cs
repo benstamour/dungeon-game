@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// displays number of orbs collected by player on the finish screen
 public class ScoreText : MonoBehaviour
 {
 	private GameManager gameManagerScript;

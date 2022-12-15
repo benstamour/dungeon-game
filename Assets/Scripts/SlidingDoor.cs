@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// script for sliding door triggered by lever
 public class SlidingDoor : MonoBehaviour
 {
     private Vector3 startPos = Vector3.zero;
@@ -19,11 +20,13 @@ public class SlidingDoor : MonoBehaviour
         
     }
 	
+	// called once lever is pulled
 	public void SlideTriggered()
 	{
 		StartCoroutine(Slide());
 	}
 	
+	// once lever is pulled, slide the door open
 	IEnumerator Slide()
 	{
 		while(this.transform.position != this.startPos + new Vector3(4,0,0))

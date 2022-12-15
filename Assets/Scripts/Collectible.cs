@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// script for the collectible orbs
 public class Collectible : MonoBehaviour
 {
 	private Character characterScript;
@@ -22,6 +23,7 @@ public class Collectible : MonoBehaviour
 	
 	void FixedUpdate()
 	{
+		// handles rotation of the orb; repeats a sequence of two slow rotations followed by two fast rotations
 		if(rotation == 0)
 		{
 			this.transform.parent.Rotate(15*Time.fixedDeltaTime,60*Time.fixedDeltaTime,15*Time.fixedDeltaTime, Space.World);
@@ -54,6 +56,7 @@ public class Collectible : MonoBehaviour
 		}
 	}*/
 	
+	// when character collides with orbs, add one to their score and set the orb object to inactive
 	void OnTriggerEnter(Collider other)
 	{
 		if(other.gameObject.tag == "Character")

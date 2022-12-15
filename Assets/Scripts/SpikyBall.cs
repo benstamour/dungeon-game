@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// script for the large spikeball
 public class SpikyBall : MonoBehaviour
 {
 	private Vector3[] spawnPoints = new Vector3[3];
@@ -12,6 +13,7 @@ public class SpikyBall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		// 3 possible spawn points for the large spikeball: one in the middle and one each slightly to the left and right
         GameObject[] spawnPointObjects = GameObject.FindGameObjectsWithTag("Spikeball Spawn Points");
 		for(int i = 0; i < 3; i++)
 		{
@@ -50,7 +52,7 @@ public class SpikyBall : MonoBehaviour
 	
 	void OnCollisionEnter(Collision col)
     {
-		//Debug.Log(col.gameObject.name);
+		// once the large spikeball reaches the bottom of the lava pit, respawn it at the top of the ramp at a random spawn point
         if(col.gameObject.name == "Spikeball Pit Bottom")
 		{
 			/*foreach (Transform child in gameObject.transform)

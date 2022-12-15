@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// script for controlling character
 public class Character : MonoBehaviour
 {
+	// for character movement
 	private CharacterController characterController;
 	private float speed = 5f;
 	private Vector3 playerVelocity;
@@ -12,13 +14,15 @@ public class Character : MonoBehaviour
 	private float jumpHeight = 1f;
 	private float gravityValue = -9.81f;
 	private float turnSpeed = 1.5f;
-	[SerializeField] private bool isActive = true;
-	private int score = 0;
+	private Vector3 rotation;
+	[SerializeField] private bool isActive = true; // should the character be allowed to move? (false when player reaches end zone)
+	
+	// game data
+	private int score = 0; // number of orbs collected
 	private float startTime;
 	private GameManager gameManagerScript;
-	private Vector3 rotation;
 	
-	//public Animation anim;
+	// data for animations
 	public Animator animator;
 	private bool isJumping = false;
 	private bool isWalkingForward = false;
@@ -33,12 +37,6 @@ public class Character : MonoBehaviour
 		this.startTime = Time.time;
 		this.gameManagerScript = GameObject.Find("GameManager").GetComponent<GameManager>();
 		this.gameManagerScript.incrementAttempts();
-		
-		/*foreach (AnimationState state in anim)
-        {
-			Debug.Log("C");
-			Debug.Log(state.ToString());
-		}*/
     }
 
     // Update is called once per frame
@@ -52,6 +50,7 @@ public class Character : MonoBehaviour
 		
 		if(this.isActive)
 		{
+			// character X/Z movement
 			this.rotation = new Vector3(0, Input.GetAxisRaw("Horizontal") * turnSpeed*100 * Time.deltaTime, 0);
  
 			Vector3 move = new Vector3(0, 0, Input.GetAxisRaw("Vertical") * Time.deltaTime);
@@ -60,17 +59,19 @@ public class Character : MonoBehaviour
 			characterController.Move(move * speed);
 			this.transform.Rotate(this.rotation);
 			
+			// character Y movement/jumping
 			if (Input.GetButton("Jump") && groundedPlayer)
 			{
 				playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
 				
 				if(jumpHeight * -3.0f * gravityValue >= 0)
 				{
-					this.isJumping = true;
+					this.isJumping = true; // if character is moving upwards, show jump animation
 					//animator.SetBool("isIdle", false);
 				}
 				//anim.CrossFade("Jump");
 			}
+			// setting variables for animations
 			else if(groundedPlayer)
 			{
 				this.isJumping = false;
@@ -114,6 +115,9 @@ public class Character : MonoBehaviour
 			animator.SetBool("isTurningLeft", false);
 			animator.SetBool("isTurningRight", false);
 			animator.SetBool("isIdle", false);
+			// deciding which animation will be played
+			// jumping animation takes priority, followed by walking forward/backward,
+			// followed by turning left/right, followed by idle
 			if(this.isJumping)
 			{
 				animator.SetBool("isJumping", true);
@@ -153,6 +157,7 @@ public class Character : MonoBehaviour
 		}
     }
 	
+	// triggered when player enters end zone
 	void OnTriggerEnter(Collider other)
 	{
 		if(other.gameObject.tag == "EndZone")
@@ -161,6 +166,7 @@ public class Character : MonoBehaviour
 		}
 	}
 	
+	// when player reaches end zone, they are taken to the finish screen
 	private void EndZone()
 	{
 		this.isActive = false;

@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// displays total number of attempts player has taken in end screen
 public class AttemptText : MonoBehaviour
 {
     private GameManager gameManagerScript;
-	private int attempts = 0;
+	private int attempts = 0; // total number of attempts
 	
 	public TextMeshProUGUI textComponent;
 	

@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// script for the sliding spiked walls
 public class MovingWall : MonoBehaviour
 {
 	[SerializeField] int wallNum = 0;
-	int dir = 0;
+	int dir = 0; // two possible directions
 	Vector3 startPos = Vector3.zero;
 	float slideProgress = 0f;
 	float slideRate = 0.025f;
@@ -28,6 +29,7 @@ public class MovingWall : MonoBehaviour
 	
 	void FixedUpdate()
 	{
+		// handles movement of walls
 		if(this.dir == 0)
 		{
 			this.slideProgress += Time.fixedDeltaTime*this.slideRate;

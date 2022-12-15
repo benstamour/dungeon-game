@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// script for the platform that moves up and down once triggered by the lever
 public class LiftingPlatform : MonoBehaviour
 {
-	private int dir = 0;
+	private int dir = 0; // two possible directions
 	private Vector3 startPos = Vector3.zero;
 	private float speed = 2f;
-	private bool liftActivated = false;
+	private bool liftActivated = false; // true once player activates lever
 	
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class LiftingPlatform : MonoBehaviour
 	
 	void FixedUpdate()
 	{
+		// handles movement of platform
 		if(liftActivated)
 		{
 			if(this.dir == 0)

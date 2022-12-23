@@ -21,7 +21,6 @@ public class CharacterSelection : MonoBehaviour
 	
 	public void SelectCharacter(string character)
 	{
-		Debug.Log(character);
 		this.gameManagerScript.SetCharacter(character);
 		SceneManager.LoadScene("Arena");
 	}

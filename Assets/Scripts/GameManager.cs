@@ -79,4 +79,9 @@ public class GameManager : MonoBehaviour
 	{
 		return this.numAttempts;
 	}
+	
+	public string getChar()
+	{
+		return this.character;
+	}
 }

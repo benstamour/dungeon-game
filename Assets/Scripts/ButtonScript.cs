@@ -19,6 +19,11 @@ public class ButtonScript : MonoBehaviour
     }
 	
 	// these functions load the corresponding scene
+	public void LoadCharSelection()
+	{
+		SceneManager.LoadScene("CharSelect");
+	}
+	
 	public void LoadArena()
 	{
 		SceneManager.LoadScene("Arena");

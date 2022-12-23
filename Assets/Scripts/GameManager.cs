@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 	private int score = 0;
 	private float timeTaken = 0f;
 	private int numAttempts = 0;
+	private string character = "";
 	
 	void Awake()
 	{
@@ -27,6 +28,12 @@ public class GameManager : MonoBehaviour
     {
         
     }
+	
+	public void SetCharacter(string character)
+	{
+		Debug.Log(character);
+		this.character = character;
+	}
 	
 	public void setScore(int score)
 	{

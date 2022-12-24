@@ -14,12 +14,16 @@ public class Lever : MonoBehaviour
     private float distance;
     private float angleView;
     private Vector3 direction;
+	
+	private GameManager gameManagerScript;
 
 	// Start is called before the first frame update
 	void Start()
     {
 		anim = GetComponent<Animator>();
 		anim.SetBool("LeverUp", true);
+		
+		this.gameManagerScript = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 	
 	void Update()
@@ -36,6 +40,8 @@ public class Lever : MonoBehaviour
 		{
 			anim.SetBool("LeverUp", false); // triggers lever animation
 			activated = true;
+			
+			this.gameManagerScript.PlayLeverClip();
 			
 			StartCoroutine(CheckAnim()); // waits for lever animation to complete before triggering effects
 

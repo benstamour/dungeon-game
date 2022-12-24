@@ -7,11 +7,14 @@ using UnityEngine.SceneManagement;
 public class ButtonScript : MonoBehaviour
 {
 	private GameManager gameManagerScript;
+	public AudioClip buttonClip;
+	//AudioSource audioSource;
 	
     // Start is called before the first frame update
     void Start()
     {
         this.gameManagerScript = GameObject.Find("GameManager").GetComponent<GameManager>();
+		//this.audioSource = this.gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -23,36 +26,52 @@ public class ButtonScript : MonoBehaviour
 	// these functions load the corresponding scene
 	public void LoadCharSelection()
 	{
+		this.gameManagerScript.PlayButtonClip();
 		SceneManager.LoadScene("CharSelect");
 	}
 	
 	public void LoadArena()
 	{
+		this.gameManagerScript.PlayButtonClip();
 		SceneManager.LoadScene("Arena");
 	}
 	
 	public void LoadControls()
 	{
+		this.gameManagerScript.PlayButtonClip();
 		SceneManager.LoadScene("ControlScreen");
 	}
 	
 	public void LoadStartScreen()
 	{
+		this.gameManagerScript.PlayButtonClip();
 		SceneManager.LoadScene("StartScreen");
 	}
 	
 	public void LoadEndScreen()
 	{
+		this.gameManagerScript.PlayButtonClip();
 		SceneManager.LoadScene("EndScreen");
 	}
 	
 	public void LoadInstructionScreen()
 	{
+		this.gameManagerScript.PlayButtonClip();
 		SceneManager.LoadScene("InstructionScreen");
 	}
 	
+	// triggered when player selects a character
+	public void SelectCharacter(string character)
+	{
+		this.gameManagerScript.PlayButtonClip();
+		this.gameManagerScript.SetCharacter(character);
+		this.gameManagerScript.StartGame();
+	}
+	
+	// triggered when player reaches end zone and goes to main menu; the menu soundtrack should start playing
 	public void EndScreenToStartScreen()
 	{
+		this.gameManagerScript.PlayButtonClip();
 		this.gameManagerScript.LoadStartScreen();
 	}
 }

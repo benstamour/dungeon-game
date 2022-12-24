@@ -13,6 +13,12 @@ public class GameManager : MonoBehaviour
 	
 	public AudioClip menuSoundtrack;
 	public AudioClip arenaSoundtrack;
+	public AudioClip buttonClip;
+	public AudioClip orbClip;
+	public AudioClip leverClip;
+	
+	public AudioSource audioSource1;
+	public AudioSource audioSource2;
 	
 	void Awake()
 	{
@@ -23,7 +29,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+		
     }
 
     // Update is called once per frame
@@ -61,7 +67,9 @@ public class GameManager : MonoBehaviour
 	{
 		SceneManager.LoadScene("StartScreen");
 		
-		AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+		// play menu soundtrack
+		//AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+		AudioSource audioSource = this.audioSource1;
 		audioSource.clip = menuSoundtrack;
 		audioSource.Stop();
 		audioSource.loop = true;
@@ -72,7 +80,8 @@ public class GameManager : MonoBehaviour
 	{
 		SceneManager.LoadScene("Arena");
 		
-		AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+		// play arena soundtrack
+		AudioSource audioSource = this.audioSource1;
 		audioSource.Stop();
 		audioSource.clip = arenaSoundtrack;
 		audioSource.loop = true;
@@ -97,5 +106,32 @@ public class GameManager : MonoBehaviour
 	public string getChar()
 	{
 		return this.character;
+	}
+	
+	public void PlayButtonClip()
+	{
+		AudioSource audioSource = this.audioSource2;
+		audioSource.Stop();
+		audioSource.clip = buttonClip;
+		audioSource.loop = false;
+		audioSource.Play();
+	}
+	
+	public void PlayOrbClip()
+	{
+		AudioSource audioSource = this.audioSource2;
+		audioSource.Stop();
+		audioSource.clip = orbClip;
+		audioSource.loop = false;
+		audioSource.Play();
+	}
+	
+	public void PlayLeverClip()
+	{
+		AudioSource audioSource = this.audioSource2;
+		audioSource.Stop();
+		audioSource.clip = leverClip;
+		audioSource.loop = false;
+		audioSource.Play();
 	}
 }

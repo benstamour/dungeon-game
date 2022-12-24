@@ -20,8 +20,9 @@ public class ArenaManager : MonoBehaviour
 		
         try
 		{
-			// gets chosen character from game manager
 			this.gameManagerScript = GameObject.Find("GameManager").GetComponent<GameManager>();
+			
+			// gets chosen character from game manager
 			this.character = gameManagerScript.getChar();
 		}
 		catch

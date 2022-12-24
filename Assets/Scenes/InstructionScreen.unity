@@ -1001,7 +1001,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Navigate  the  obstacles  as  you  attempt  to  escape  the  dungeon  as 
     fast  as  you  can!  For  an  additional  challenge,  see  if  you  can  collect 
-    all  10  blue  orbs  placed  along  your  path.
+    all  10  coloured  orbs  placed  along  your  path.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 22c65351011a6b54ca3dfba5fc0153e1, type: 2}
   m_sharedMaterial: {fileID: 689780830850302828, guid: 22c65351011a6b54ca3dfba5fc0153e1, type: 2}

@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 // script for buttons on GUI screens
 public class ButtonScript : MonoBehaviour
 {
+	private GameManager gameManagerScript;
+	
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.gameManagerScript = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -47,5 +49,10 @@ public class ButtonScript : MonoBehaviour
 	public void LoadInstructionScreen()
 	{
 		SceneManager.LoadScene("InstructionScreen");
+	}
+	
+	public void EndScreenToStartScreen()
+	{
+		this.gameManagerScript.LoadStartScreen();
 	}
 }

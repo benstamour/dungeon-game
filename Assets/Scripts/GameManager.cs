@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
 	private int numAttempts = 0;
 	private string character = "";
 	
+	public AudioClip menuSoundtrack;
+	public AudioClip arenaSoundtrack;
+	
 	void Awake()
 	{
 		DontDestroyOnLoad(transform.gameObject);
@@ -31,7 +34,6 @@ public class GameManager : MonoBehaviour
 	
 	public void SetCharacter(string character)
 	{
-		Debug.Log(character);
 		this.character = character;
 	}
 	
@@ -58,11 +60,23 @@ public class GameManager : MonoBehaviour
 	public void LoadStartScreen()
 	{
 		SceneManager.LoadScene("StartScreen");
+		
+		AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+		audioSource.clip = menuSoundtrack;
+		audioSource.Stop();
+		audioSource.loop = true;
+		audioSource.Play();
 	}
 	
 	public void StartGame()
 	{
 		SceneManager.LoadScene("Arena");
+		
+		AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+		audioSource.Stop();
+		audioSource.clip = arenaSoundtrack;
+		audioSource.loop = true;
+		audioSource.Play();
 	}
 	
 	public void EndZone()

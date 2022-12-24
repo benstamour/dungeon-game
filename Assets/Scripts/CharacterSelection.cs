@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
+// script for character selection screen
 public class CharacterSelection : MonoBehaviour
 {
 	private GameManager gameManagerScript;
@@ -22,6 +22,6 @@ public class CharacterSelection : MonoBehaviour
 	public void SelectCharacter(string character)
 	{
 		this.gameManagerScript.SetCharacter(character);
-		SceneManager.LoadScene("Arena");
+		this.gameManagerScript.StartGame();
 	}
 }

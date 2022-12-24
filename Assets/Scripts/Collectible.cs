@@ -8,11 +8,13 @@ public class Collectible : MonoBehaviour
 	private Character characterScript;
 	private int rotation = 0;
 	private float sum = 0f;
+	private GameManager gameManagerScript;
 	
     // Start is called before the first frame update
     void Start()
     {
-        characterScript = GameObject.FindWithTag("Character").GetComponent<Character>();
+        this.characterScript = GameObject.FindWithTag("Character").GetComponent<Character>();
+		this.gameManagerScript = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -61,6 +63,13 @@ public class Collectible : MonoBehaviour
 	{
 		if(other.gameObject.tag == "Character")
 		{
+			try
+			{
+				this.gameManagerScript.PlayOrbClip();
+			}
+			catch
+			{
+			}
 			characterScript.IncrementScore();
 			this.transform.parent.gameObject.SetActive(false);
 		}

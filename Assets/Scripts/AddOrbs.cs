@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// script to distribute orbs in arena upon loading; used to assign an orb colour to each character
 public class AddOrbs : MonoBehaviour
 {
-	public GameObject orbPrefab;
+	public GameObject orbPrefab; // orb prefab
 	
     // Start is called before the first frame update
     void Start()
     {
+		// instantiate orbs
         Instantiate(orbPrefab, new Vector3(15f, 2.5f, 56f), Quaternion.identity);
 		Instantiate(orbPrefab, new Vector3(35f, 10.5f, 89.5f), Quaternion.identity);
 		Instantiate(orbPrefab, new Vector3(21.5f, 10.5f, 98.5f), Quaternion.identity);

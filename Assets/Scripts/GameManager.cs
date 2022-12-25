@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 	
 	public AudioSource audioSource1;
 	public AudioSource audioSource2;
+	private bool volume = true; // is music/sound on or off?
 	
 	void Awake()
 	{
@@ -68,7 +69,6 @@ public class GameManager : MonoBehaviour
 		SceneManager.LoadScene("StartScreen");
 		
 		// play menu soundtrack
-		//AudioSource audioSource = gameObject.GetComponent<AudioSource>();
 		AudioSource audioSource = this.audioSource1;
 		audioSource.clip = menuSoundtrack;
 		audioSource.Stop();
@@ -108,6 +108,7 @@ public class GameManager : MonoBehaviour
 		return this.character;
 	}
 	
+	// play sound effects
 	public void PlayButtonClip()
 	{
 		AudioSource audioSource = this.audioSource2;
@@ -115,8 +116,7 @@ public class GameManager : MonoBehaviour
 		audioSource.clip = buttonClip;
 		audioSource.loop = false;
 		audioSource.Play();
-	}
-	
+	}	
 	public void PlayOrbClip()
 	{
 		AudioSource audioSource = this.audioSource2;
@@ -124,8 +124,7 @@ public class GameManager : MonoBehaviour
 		audioSource.clip = orbClip;
 		audioSource.loop = false;
 		audioSource.Play();
-	}
-	
+	}	
 	public void PlayLeverClip()
 	{
 		AudioSource audioSource = this.audioSource2;
@@ -133,5 +132,26 @@ public class GameManager : MonoBehaviour
 		audioSource.clip = leverClip;
 		audioSource.loop = false;
 		audioSource.Play();
+	}
+	
+	// turn music/sound effects on and off
+	public bool getVolume()
+	{
+		return this.volume;
+	}
+	public void ToggleVolume()
+	{
+		this.volume = !this.volume;
+		
+		if(this.volume == false)
+		{
+			this.audioSource1.volume = 0;
+			this.audioSource2.volume = 0;
+		}
+		else
+		{
+			this.audioSource1.volume = 1;
+			this.audioSource2.volume = 1;
+		}
 	}
 }

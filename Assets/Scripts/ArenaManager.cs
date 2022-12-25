@@ -12,9 +12,16 @@ public class ArenaManager : MonoBehaviour
 	private GameManager gameManagerScript;
 	private string character;
 	
+	public Canvas pauseScreen;
+	private bool paused = false;
+	
     // Start is called before the first frame update
     void Start()
     {
+		// disable pause screen and make sure scene is not paused
+		this.pauseScreen.enabled = false;
+		Time.timeScale = 1;
+		
 		// location that character begins at
 		Vector3 startLoc = new Vector3(-12f, 0.5f, 33f);
 		
@@ -67,6 +74,29 @@ public class ArenaManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+		// pause/unpause game
+        if (Input.GetKeyDown("p"))
+        {
+			if(this.paused == false)
+			{
+				Time.timeScale = 0;
+				this.pauseScreen.enabled = true;
+				this.paused = true;
+			}
+			else
+			{
+				Time.timeScale = 1;
+				this.pauseScreen.enabled = false;
+				this.paused = false;
+			}
+        }
     }
+	
+	public void ResumeButton()
+	{
+		this.gameManagerScript.PlayButtonClip();
+		Time.timeScale = 1;
+		this.pauseScreen.enabled = false;
+		this.paused = false;
+	}
 }

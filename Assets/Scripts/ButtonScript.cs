@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 // script for buttons on GUI screens
 public class ButtonScript : MonoBehaviour
@@ -69,9 +71,24 @@ public class ButtonScript : MonoBehaviour
 	}
 	
 	// triggered when player reaches end zone and goes to main menu; the menu soundtrack should start playing
-	public void EndScreenToStartScreen()
+	public void GameToStartScreen()
 	{
 		this.gameManagerScript.PlayButtonClip();
 		this.gameManagerScript.LoadStartScreen();
+	}
+	
+	// toggles sound on and off
+	public void ToggleVolume()
+	{
+		this.gameManagerScript.ToggleVolume();
+		TextMeshProUGUI textComponent = GameObject.Find("VolumeButton").GetComponentInChildren<TextMeshProUGUI>();
+		if(textComponent.text == "SOUND ON")
+		{
+			textComponent.text = "SOUND OFF";
+		}
+		else
+		{
+			textComponent.text = "SOUND ON";
+		}
 	}
 }

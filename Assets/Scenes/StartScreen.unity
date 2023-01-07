@@ -931,6 +931,7 @@ GameObject:
   - component: {fileID: 684949376}
   - component: {fileID: 684949375}
   - component: {fileID: 684949374}
+  - component: {fileID: 684949377}
   m_Layer: 5
   m_Name: VolumeButton
   m_TagString: Untagged
@@ -1053,6 +1054,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684949372}
   m_CullTransparentMesh: 1
+--- !u!114 &684949377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684949372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a95c3230084de5b41a5aaa4dc71d66ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 539223044}
 --- !u!1 &743232074
 GameObject:
   m_ObjectHideFlags: 0
